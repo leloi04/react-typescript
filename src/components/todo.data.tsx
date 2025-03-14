@@ -9,7 +9,7 @@ interface Iprops {
 }
 
 const TodoData = (props: Iprops) => {
-    const {todos, owner} = props;
+    const {todos} = props;
 
     return (
         <div>
@@ -17,9 +17,8 @@ const TodoData = (props: Iprops) => {
                 return (
                     <>
                     <div key={todo.id}>
-                        <h2>id: {todo.id}</h2>
-                        <span>title: {todo.title}</span>
-                        <h3>isComplete: {todo.isComplete}</h3>
+                        <br />
+                        <span>{todo.id} - {todo.title}</span>
                     </div>
                     <br/>
                     </>
