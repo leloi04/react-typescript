@@ -17,6 +17,11 @@ const TodoList = () => {
         setListTodo([...listTodo, todo])
     }
 
+    const deleteTodo = (id: number) => {
+        let newListTodo = listTodo.filter((item) => item.id !== id);
+        setListTodo(newListTodo);
+    }
+
     return (
         <div>
             <div>todo list</div>
@@ -26,7 +31,7 @@ const TodoList = () => {
             />
             <TodoData
                 todos={listTodo}
-                owner={"Hello World"}
+                deleteTodo={deleteTodo}
             />
         </div>
     )

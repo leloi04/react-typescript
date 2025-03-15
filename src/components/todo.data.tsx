@@ -4,24 +4,27 @@ interface Iprops {
         title: string,
         isComplete: boolean
     }[];
-    owner: string;
+    deleteTodo: (v: number) => void;
     
 }
 
 const TodoData = (props: Iprops) => {
-    const {todos} = props;
+    const {todos, deleteTodo} = props;
 
     return (
         <div>
-            {todos.map((todo) => {
+            {todos.map((item) => {
                 return (
-                    <>
-                    <div key={todo.id}>
+                    <div key={item.id}>
                         <br />
-                        <span>{todo.id} - {todo.title}</span>
+                        <span>{item.id} - {item.title}</span>
+                        <button 
+                        style={{marginLeft: "30px"}}
+                        onClick={() => deleteTodo(item.id)}
+                        >
+                            Delete
+                        </button>
                     </div>
-                    <br/>
-                    </>
                 )
             })}
         </div>
